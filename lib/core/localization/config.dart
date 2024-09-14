@@ -1,4 +1,4 @@
-import 'package:flutter_localization/flutter_localization.dart';
+// import 'package:flutter_localization/flutter_localization.dart';
 
 mixin AppLocale {
   static const String todoPageTitle = 'todoPageTitle';
@@ -30,23 +30,23 @@ mixin AppLocale {
   };
 }
 
-const mapLocales = [
-  MapLocale(
-    'en',
-    AppLocale.EN,
-    countryCode: 'US',
-    fontFamily: 'Font EN',
-  ),
-  MapLocale(
-    'zh',
-    AppLocale.ZH,
-    countryCode: 'ZH',
-    fontFamily: 'Font ZH-CN',
-  ),
-  MapLocale(
-    'ja',
-    AppLocale.JA,
-    countryCode: 'JP',
-    fontFamily: 'Font JA',
-  ),
-];
+// const mapLocales = [
+//   MapLocale(
+//     'en',
+//     AppLocale.EN,
+//     countryCode: 'US',
+//     fontFamily: 'Font EN',
+//   ),
+//   MapLocale(
+//     'zh',
+//     AppLocale.ZH,
+//     countryCode: 'ZH',
+//     fontFamily: 'Font ZH-CN',
+//   ),
+//   MapLocale(
+//     'ja',
+//     AppLocale.JA,
+//     countryCode: 'JP',
+//     fontFamily: 'Font JA',
+//   ),
+// ];

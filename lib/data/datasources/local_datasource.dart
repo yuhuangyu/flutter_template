@@ -7,6 +7,8 @@ class LocalDataSource {
   final _hiveBoxName = 'demo_box';
   static const keyTodoList = 'keyTodoList';
   static const keyUser = 'keyUser';
+  static const keyTheme = 'keyTheme';
+  static const keyLocale = 'keyLocale';
 
   Future<void> save(String key, value) async {
     var box = await Hive.openBox(_hiveBoxName);

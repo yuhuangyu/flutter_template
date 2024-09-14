@@ -21,6 +21,22 @@ class TodoRepository {
     return localList.cast<TodoEntity>();
   }
 
+  Future<void> saveTheme(String theme) async {
+    await _localDataSource.save(LocalDataSource.keyTheme, theme);
+  }
+
+  Future<String> getTheme({defaultValue}) async {
+    return await _localDataSource.get(LocalDataSource.keyTheme, defaultValue: defaultValue);
+  }
+
+  Future<void> saveLocale(String locale) async {
+    await _localDataSource.save(LocalDataSource.keyLocale, locale);
+  }
+
+  Future<String> getLocale({defaultValue}) async {
+    return await _localDataSource.get(LocalDataSource.keyLocale, defaultValue: defaultValue);
+  }
+
   Future<List<TodoEntity>> fetchTodoList() async {
     var datas = await _remoteDataSource.fetchData('/todos');
     datas = datas as List;
