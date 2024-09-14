@@ -17,37 +17,6 @@ yet another flutter fast development framework
 
 那么，基于上面的分析，我就开始做了一些选型，这里基本上就是按照官方**Flutter Favorites ,**里面推荐的来选了。因为这些建议的库都是目前Flutter社区中比较流行和受欢迎的，能够提供稳定和高效的开发体验。
 
-### 1. 状态管理：Riverpod
-
-
-- **库名**: `flutter_riverpod`
-- **描述**: 一个提供编译时安全、测试友好和易于组合的状态管理库。
-- **选择理由**: Riverpod 是 Provider 的升级版，提供更好的性能和灵活性，但是说哪个更好，其实不能一概而论，毕竟不同的人会有不同的编码习惯。
-
-```jsx
-@riverpod
-Future<String> boredSuggestion(BoredSuggestionRef ref) async {
-  final response = await http.get(
-    Uri.https('https://boredapi.com/api/activity'),
-  );
-  final json = jsonDecode(response.body);
-  return json['activity']! as String;
-}
-
-class Home extends ConsumerWidget {
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final boredSuggestion = ref.watch(boredSuggestionProvider);
-    // Perform a switch-case on the result to handle loading/error states
-    return boredSuggestion.when(
-      loading: () => Text('loading'),
-      error: (error, stackTrace) => Text('error: $error'),
-      data: (data) => Text(data),
-    );
-  }
-}
-```
-
 ### 2. 网络请求管理：Dio
 
 - **库名**: `dio`
@@ -62,18 +31,6 @@ final rs = await dio.get(
 print(rs.data.stream); // Response stream.
 ```
 
-### 3. 路由管理：routemaster
-
-- **库名**: `routemaster`
-- **描述**: 提供声明式路由解决方案，支持参数传递、路由守卫等。
-- **选择理由**: url的方式访问，简化了路由管理的复杂度。
-
-```jsx
-'/protected-route': (route) =>
-    canUserAccessPage()
-      ? MaterialPage(child: ProtectedPage())
-      : Redirect('/no-access'),
-```
 
 ### 4. UI组件库：tdesign_flutter
 
@@ -196,11 +153,3 @@ fdflutter/
 - **`domain/`**: 领域层包含实体和用例，用于实现业务逻辑。
 - **`presentation/`**: 表示层包含页面和`Provider`，用于显示UI和管理状态。
 - **`test/`**: 测试目录包含各层的测试代码，使用**`flutter_test`**和**`mockito`**来编写测试。
-
-### 加群讨论
-欢迎加群讨论技术？随意打赏，请备注 github 名
-
-<img width="200" alt="image" src="https://github.com/bravekingzhang/react-ai-chat/assets/4476322/7c457992-a0bc-49a3-9bd6-f23b5f1a595e">
-
-关注作者微信公众号，与作者交流，第一时间知道作者动态？
-<img width="600" alt="image" src="https://raw.githubusercontent.com/bravekingzhang/pic_go/master/2024/02/22/1708602722259-32c72eeb-4eb7-475e-8029-eb2873a06650.png">
